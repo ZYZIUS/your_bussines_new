@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'zadania.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.amber,
       ),
       home: const Main(),
     );
@@ -35,11 +36,46 @@ class _MainState extends State<Main> {
     });
   }
 
-  static const List<Widget> _pages = <Widget>[
-    Icon(
-      Icons.call,
-      size: 150,
+  Widget titleSection = Container(
+    padding: const EdgeInsets.all(32),
+    child: Row(
+      children: [
+        Expanded(
+          /*1*/
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /*2*/
+              Container(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: const Text(
+                  'Oeschinen Lake Campground',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(
+                'Kandersteg, Switzerland',
+                style: TextStyle(
+                  color: Colors.grey[500],
+                ),
+              ),
+            ],
+          ),
+        ),
+        /*3*/
+        Icon(
+          Icons.star,
+          color: Colors.red[500],
+        ),
+        const Text('41'),
+      ],
     ),
+  );
+
+  static const List<Widget> _pages = <Widget>[
+    Zadania(),
     Icon(
       Icons.camera,
       size: 150,
@@ -55,6 +91,7 @@ class _MainState extends State<Main> {
     return MaterialApp(
       title: "YourBussines",
       home: Scaffold(
+        backgroundColor: const Color.fromRGBO(21, 21, 21, 1),
         body: Center(
           child: _pages.elementAt(_selectedIndex), //New
         ),
