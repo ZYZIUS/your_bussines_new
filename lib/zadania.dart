@@ -35,7 +35,7 @@ class _ZadaniaState extends State<Zadania> {
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 30, 30, 30),
+                  color: const Color.fromARGB(255, 30, 30, 30),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Text('Block 2'),
