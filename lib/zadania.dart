@@ -7,7 +7,23 @@ class Zadania extends StatefulWidget {
   State<Zadania> createState() => _ZadaniaState();
 }
 
-class _ZadaniaState extends State<Zadania> {
+class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
+  bool selected = false;
+  late Animation<double> animation;
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: const Duration(milliseconds: 700), vsync: this);
+    animation = Tween<double>(begin: -200, end: 0).animate(controller)
+      ..addListener(() {
+        setState(() {});
+      });
+    controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,6 +32,8 @@ class _ZadaniaState extends State<Zadania> {
           direction: Axis.horizontal,
           children: [
             Expanded(
+                child: Transform.translate(
+              offset: Offset(animation.value, 0),
               child: Container(
                 margin: const EdgeInsets.all(20),
                 child: const Text(
@@ -24,7 +42,7 @@ class _ZadaniaState extends State<Zadania> {
                       fontSize: 50, color: Color.fromARGB(255, 255, 255, 255)),
                 ),
               ),
-            ),
+            )),
           ],
         ),
         Flex(
@@ -57,5 +75,11 @@ class _ZadaniaState extends State<Zadania> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
