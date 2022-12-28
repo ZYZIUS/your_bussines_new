@@ -92,9 +92,8 @@ class _MainState extends State<Main> {
       title: "YourBussines",
       home: Scaffold(
         backgroundColor: const Color.fromRGBO(21, 21, 21, 1),
-        body: Center(
-          child: _pages.elementAt(_selectedIndex), //New
-        ),
+        body: _pages.elementAt(_selectedIndex), //New
+
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
