@@ -27,7 +27,8 @@ class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+      padding: const EdgeInsets.all(8),
       children: [
         Flex(
           direction: Axis.horizontal,
@@ -46,23 +47,7 @@ class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
             )),
           ],
         ),
-        Flex(
-          direction: Axis.horizontal,
-          children: [
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.only(
-                    top: 60, bottom: 20, left: 20, right: 20),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 30, 30, 30),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: TaskList(),
-              ),
-            ),
-          ],
-        ),
+        TaskList(),
         Flex(
           direction: Axis.horizontal,
           children: [
