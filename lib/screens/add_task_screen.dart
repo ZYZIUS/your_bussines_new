@@ -8,10 +8,10 @@ class AddTaskScreen extends StatelessWidget {
     String newTaskTitle = '';
 
     return Container(
-      color: const Color(0xFF757575),
+      color: Color.fromARGB(255, 30, 30, 30),
       child: Container(
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Color.fromARGB(255, 30, 30, 30),
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         ),
@@ -23,7 +23,7 @@ class AddTaskScreen extends StatelessWidget {
               'Add Task',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.white,
                 fontSize: 30.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -47,14 +47,14 @@ class AddTaskScreen extends StatelessWidget {
                     .addTask(newTaskTitle);
                 Navigator.pop(context);
               },
-              color: Colors.blue,
+              color: Colors.white,
               child: const Text(
-                'Add',
+                'Dodaj',
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
               ),
-              textColor: Colors.white,
+              textColor: Colors.black,
               height: 50.0,
             )
           ],

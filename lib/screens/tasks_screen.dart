@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 import '../widgets/tasks_list.dart';
-
 import 'add_task_screen.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
+  const TasksScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  @override
   int _selectedIndex = 0;
   void _onItemTapped(int index, BuildContext context) {
     if (index == 1) {
