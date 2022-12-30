@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'modules/list_tasks.dart';
 
 class Zadania extends StatefulWidget {
   const Zadania({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     controller = AnimationController(
-        duration: const Duration(milliseconds: 700), vsync: this);
+        duration: const Duration(milliseconds: 300), vsync: this);
     animation = Tween<double>(begin: -200, end: 0).animate(controller)
       ..addListener(() {
         setState(() {});
@@ -50,13 +51,14 @@ class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
           children: [
             Expanded(
               child: Container(
-                margin: const EdgeInsets.all(20),
+                margin: const EdgeInsets.only(
+                    top: 60, bottom: 20, left: 20, right: 20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 30, 30, 30),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text('Block 2'),
+                child: TaskList(),
               ),
             ),
           ],
