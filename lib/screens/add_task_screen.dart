@@ -20,7 +20,7 @@ class AddTaskScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             const Text(
-              'Add Task',
+              'Dodaj zadanie',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
@@ -32,6 +32,7 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               textAlign: TextAlign.center,
               style: const TextStyle(
+                color: Colors.white,
                 fontSize: 25.0,
               ),
               onChanged: (newText) {
