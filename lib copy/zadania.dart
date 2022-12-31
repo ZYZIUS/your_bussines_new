@@ -47,7 +47,7 @@ class _ZadaniaState extends State<Zadania> with SingleTickerProviderStateMixin {
             )),
           ],
         ),
-        TaskList(),
+        const TaskList(),
         Flex(
           direction: Axis.horizontal,
           children: [

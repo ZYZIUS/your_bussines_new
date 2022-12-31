@@ -41,7 +41,7 @@ class _TaskListState extends State<TaskList> {
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        margin: EdgeInsets.only(right: 15),
+                        margin: const EdgeInsets.only(right: 15),
                         height: 50,
                         width: 50,
                         child: const Text('Block 2'),

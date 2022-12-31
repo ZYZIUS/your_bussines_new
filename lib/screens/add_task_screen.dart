@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 import '../models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     String newTaskTitle = '';
 
     return Container(
-      color: Color.fromARGB(255, 30, 30, 30),
+      color: const Color.fromARGB(255, 30, 30, 30),
       child: Container(
         decoration: const BoxDecoration(
           color: Color.fromARGB(255, 30, 30, 30),
@@ -49,14 +51,14 @@ class AddTaskScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
               color: Colors.white,
+              textColor: Colors.black,
+              height: 50.0,
               child: const Text(
                 'Dodaj',
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
               ),
-              textColor: Colors.black,
-              height: 50.0,
             )
           ],
         ),
