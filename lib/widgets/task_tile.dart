@@ -22,6 +22,7 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: EdgeInsets.only(top: 10, bottom: 10),
         margin: EdgeInsets.only(top: 20),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 55, 55, 55),

@@ -33,24 +33,37 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task),
-            label: 'Zadania',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Dodaj',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profil',
-          ),
-        ],
-        onTap: (int index) {
-          _onItemTapped(index, context);
-        }, //New
+      bottomNavigationBar: new Theme(
+        data: Theme.of(context).copyWith(
+            // sets the background color of the `BottomNavigationBar`
+            canvasColor: Color.fromARGB(255, 30, 30, 30),
+            // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+            primaryColor: Colors.white,
+            textTheme: Theme.of(context).textTheme.copyWith(
+                caption: new TextStyle(
+                    color: Colors
+                        .yellow))), // sets the inactive color of the `BottomNavigationBar`
+        child: new BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: 0,
+          onTap: (int index) {
+            _onItemTapped(index, context);
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.task),
+              label: 'Zadania',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add),
+              label: 'Dodaj',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profil',
+            ),
+          ],
+        ),
       ),
       backgroundColor: Color.fromARGB(255, 30, 30, 30),
       body: Column(
