@@ -6,6 +6,7 @@ import 'task.dart';
 
 class TaskData extends ChangeNotifier {
   final List<Task> _tasks = [];
+  String profileNameText = "ANS";
 
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);
@@ -15,9 +16,17 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
+  get profileName {
+    return profileNameText;
+  }
+
   void addTask(String newTaskTitle) {
     _tasks.add(Task(name: newTaskTitle));
     notifyListeners();
+  }
+
+  setName(String newProfileName) {
+    profileNameText = newProfileName;
   }
 
   void updateTask(Task task) {

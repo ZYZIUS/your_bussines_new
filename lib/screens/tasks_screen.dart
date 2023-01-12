@@ -13,7 +13,7 @@ class TasksScreen extends StatefulWidget {
 
 class _TasksScreenState extends State<TasksScreen> {
   void _onItemTapped(int index, BuildContext context) {
-    if (index == 1) {
+    if (index == 0) {
       showModalBottomSheet(
         context: context,
         isScrollControlled: true,
@@ -56,10 +56,6 @@ class _TasksScreenState extends State<TasksScreen> {
           },
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.task),
-              label: 'Zadania',
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.add),
               label: 'Dodaj',
             ),
@@ -83,8 +79,8 @@ class _TasksScreenState extends State<TasksScreen> {
                 const SizedBox(
                   height: 10.0,
                 ),
-                const Text(
-                  'Witaj, ANS',
+                Text(
+                  'Witaj, ${Provider.of<TaskData>(context).profileName}',
                   style: TextStyle(
                     fontSize: 50.0,
                     fontWeight: FontWeight.w400,
@@ -210,7 +206,33 @@ class Profil extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: Container(),
+              child: Column(children: [
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 40, 40, 40),
+                    borderRadius: BorderRadius.circular(32),
+                  ),
+                  child: TextFormField(
+                    initialValue: Provider.of<TaskData>(context).profileName,
+                    onChanged: (text) {
+                      Provider.of<TaskData>(context, listen: false)
+                          .setName(text);
+                    },
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.0,
+                    ),
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                      fillColor: Colors.grey,
+                      hintText: 'Wpisz imię',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(20),
+                    ),
+                  ),
+                ),
+              ]),
             ),
           ),
         ],
